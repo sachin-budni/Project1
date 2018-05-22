@@ -1,0 +1,140 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{subject}}!
+  </h1>
+
+  <h1 [innerHTML]="subject"></h1>
+
+  <input #institute (keypress)="onClick(institute.value)" /><br/><br/>
+  
+  <button (click)="onClick(institute.value)"> Click Me !</button>
+
+  <h1>Institue is {{institute.value}} </h1>
+  <h1>Institue1 is {{institute1}} </h1>
+
+  <input #sample (keypress)="lock(sample.value)"/><br/>
+  <h1>Trying To Access{{sample.value}}</h1>
+  <h1>Trying To Access{{la}}</h1>
+
+  <input [(ngModel)] = "tempKey" /><br/><br/>
+  <input [(ngModel)] = "rock" />
+
+  <h1>Temp Key iis {{rock}}</h1>
+  <h1>Temp Key is {{tempKey}}</h1>
+
+  <h1>
+    2 + 3 = {{ 2 + 3 }}
+  </h1>
+
+  <h1>
+    5 - 3 = {{ 5 - 3 }}
+  </h1>
+
+  <h1>
+    Subject Name : {{ getSubject() }}
+  </h1>
+
+  <h1>
+    Subjects in Lara : {{ subjects  }}
+  </h1>
+
+  <h1>
+    Customer is {{ customer | json}}
+  </h1>
+  <h1>
+    Customer is name = {{ customer.name}}
+  </h1>
+
+  <h1>
+    customer 1 is {{ customer1 | json}}<hr/>
+  </h1>
+
+  <h1>
+    Customers : {{ customers | json}}
+  </h1>
+<hr/>
+  <h1>
+    Customers : {{ isJavaLearningCenter ? 'Java Learning Center' : 'Not Defined'}}
+  </h1>
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+  
+  <div style="text-align:center">
+    
+      <input #fruit> <button (click)="addFruit(fruit.value)"> Add Fruit</button> 
+    
+      <h1 *ngFor="let fruit of fruits; let o = odd; let e = even; let i = index; let f = first; let l = last;">
+    
+        First : {{f}} Last : {{l}} {{fruit}} Odd : {{o}} Even : {{e}}  <button (click)="removeFruit(i)">x</button>
+		
+      </h1>
+    
+      <ng-template ngFor let-fruit [ngForOf]="fruits" >
+        Property binding <h3>{{fruit}}</h3>
+      </ng-template>
+    
+      <ng-template *ngFor="let fruit of fruits">
+          Normal {{fruit}}
+      </ng-template>
+      <!-- it is not showing the error but not exicutethis is also not working remove the ng-template  -->
+      <!-- <ul>
+        <li *ngFor="let fruit of fruits">
+           <h4>{{fruit}}</h4>
+        </li>
+      </ul>  -->
+
+      <ng-template [ngIf]="fruits">
+        Fruits are available
+      </ng-template>
+    
+      <!-- <h1 [ngIf]="fruits">
+        Fruits are available
+      </h1> -->
+      <!--  its not working if condition if if u what to work give * -->
+    </div>
+    <div>
+      switches
+    </div>
+
+  <img src="{{imgPath}}"/>
+
+  <img [src]="imgPath" />
+  
+  <img src="{{imgPath}}"/>
+
+  <img src="assets/images/1.png" />
+  
+</div>
+<!-- ----------------------------------------------------------- -->
+
+<div style="text-align:center">
+  
+  <button (click)="openCourse('Java')">Java</button>
+  <button (click)="openCourse('J2EE')">J2EE</button>
+  <button (click)="openCourse('Mean')">Mean</button>
+  <button (click)="openCourse('aanything')">Default</button>
+  
+  <div [(ngSwitch)]="course">
+    <java-course *ngSwitchCase="'Java'"></java-course>
+    <j2ee-course *ngSwitchCase="'J2EE'"></j2ee-course>
+    <mean-course *ngSwitchCase="'Mean'"></mean-course>
+    <default-course *ngSwitchDefault></default-course>
+  </div>
+
+  <span [ngSwitch]="course">
+    <java-course *ngSwitchCase="'Java'"></java-course>
+    <j2ee-course *ngSwitchCase="'J2EE'"></j2ee-course>
+    <mean-course *ngSwitchCase="'Mean'"></mean-course>
+    <default-course *ngSwitchDefault></default-course>
+  </span>
+
+  <span ngSwitch="{{course}}">
+    <java-course *ngSwitchCase="'Java'"></java-course>
+    <j2ee-course *ngSwitchCase="'J2EE'"></j2ee-course>
+    <mean-course *ngSwitchCase="'Mean'"></mean-course>
+    <default-course *ngSwitchDefault></default-course>
+  </span>
+  
+
+  </div>
